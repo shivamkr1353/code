@@ -1,0 +1,206 @@
+<%- include ('../partials/header.html'); -%>
+<title>Edit Student Details</title>
+<link rel="stylesheet" href="../../css/student.css">
+
+</head>
+<body>
+<%- include ('partials/navbar.html'); -%>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<hr class="hl1">
+<div class="page-header bg-light">
+<h1 class="text-center">
+Edit Profile
+</h1>
+</div>
+<hr class="hl1">
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 form-group bg-light border rounded border-primary">
+            <form action="/student/editdetailss" method="post" onsubmit="return validateForm()">
+                <div class="row">
+                    <!-- Personal Details Section -->
+                    <div class="col-md-6 profile-content">
+                        <p class="text-center" style="font-size: xx-large;">Personal Details</p>
+                        <hr class="hl1"><hr>
+                        <input type="text" name="user_id" value="<%= res.sid %>" hidden>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.sname %>" name="sname">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.semail %>" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Age</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" min="16" max="150" step="1" value="<%= res.age %>" name="age">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.gender %>" name="gender">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">City</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.city %>" name="city">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Mobile No.</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.smobileno %>" name="smobileno">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Is Verified</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" value="<%= res.isverifed %>" readonly>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- ==== NEW PLACEMENT STATUS FIELD ==== -->
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Placement Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="is_placed">
+                                    <!-- Pre-select the student's current status -->
+                                    <option value="1" <%= res.is_placed ? 'selected' : '' %>>
+                                        Yes, I am Placed
+                                    </option>
+                                    <option value="0" <%= !res.is_placed ? 'selected' : '' %>>
+                                        No, I am Not Placed
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- ==== END OF NEW FIELD ==== -->
+                    </div>
+                    
+                    <!-- Academic Details Section -->
+                    <div class="col-md-6 profile-content">
+                        <p class="text-center" style="font-size: xx-large;">Academic Details</p>
+                        <hr class="hl1"><hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">College Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.collegename %>" name="collegename">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Department Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<%= res.dname %>" name="dname">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Passing Year</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" min="1900" max="2099" value="<%= res.passingyear %>" name="passingyear">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">10th Result (%)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" value="<%= res.result10 %>" name="result10">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">12th Result (%)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" value="<%= res.result12 %>" name="result12">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Avg CPI</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" value="<%= res.avgcgpa %>" name="avgcgpa">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Backlogs</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" min="0" max="8" value="<%= res.backlogs %>" name="backlogs">
+                            </div>
+                        </div>
+                        <hr><hr>
+                    </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-info">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Client-side validation script
+    function validateForm() {
+        // ... (Your existing validation script) ...
+        return true; 
+    }
+</script>
+
+
+<%- include ('../partials/footer.html'); -%>

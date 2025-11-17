@@ -1,0 +1,441 @@
+/* =================================================================
+  TPO DASHBOARD (HOME) STYLES
+================================================================= */
+
+body.dashboard-page {
+  background-color: #f4f5f7; /* Light grey background */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* This container centers the content and adds padding */
+.dashboard-container {
+  width: 100%;
+  max-width: 1100px; /* A standard wide container */
+  margin: 0 auto; /* Centers the container */
+  /* This padding replaces all the <br> tags */
+  padding: 80px 2.5rem 2.5rem 2.5rem;
+  box-sizing: border-box;
+}
+
+/* === Keyframes for animations === */
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === End of Keyframes === */
+
+/* The "Welcome" banner */
+.dashboard-hero {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 3rem 3.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.25);
+
+  background-size: 200% 200%; /* Important for gradient animation */
+  animation: animateGradient 10s ease infinite;
+}
+
+.dashboard-hero h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-hero p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Title for the "Available Modules" section */
+.modules-section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* This creates the 3-column grid */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* This is the style for each individual card */
+.module-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Staggering the card animation */
+.module-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.module-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.module-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.module-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+/* Card titles - with icons! */
+.module-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0056b3;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Using CSS to add icons */
+.module-card h3::before {
+  display: inline-block;
+  margin-right: 0.75rem;
+  font-size: 1.6rem;
+  line-height: 1;
+
+  background-color: #e6f2ff; /* Light blue background */
+  color: #0056b3; /* Darker blue for icon */
+  border-radius: 50%;
+  width: 44px; /* Circle size */
+  height: 44px;
+  display: grid; /* Easiest way to center the emoji */
+  place-items: center;
+  margin-right: 1rem; /* More space */
+}
+
+/* Assigning icons to each card */
+/* These are in order of appearance in the HTML */
+.module-grid .module-card:nth-child(1) h3::before {
+  content: "📈"; /* TPO Icon */
+}
+.module-grid .module-card:nth-child(2) h3::before {
+  content: "🎓"; /* Student Icon */
+}
+.module-grid .module-card:nth-child(3) h3::before {
+  content: "🏢"; /* Company Icon */
+}
+
+/* Styling the lists inside the cards */
+.module-card ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.module-card li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.module-card li:last-child {
+  margin-bottom: 0;
+}
+
+/* Adding chevron icons to each list item */
+.module-card li::before {
+  content: "›";
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+  line-height: 1;
+  transition: transform 0.2s ease-out;
+}
+
+/* Interactive hover state for list items */
+.module-card li:hover {
+  background-color: #f8f9fa;
+  color: #0056b3;
+  transform: translateX(5px);
+  cursor: pointer;
+}
+
+.module-card li:hover::before {
+  transform: translateX(3px);
+}
+
+/* =================================================================
+  DASHBOARD RESPONSIVE STYLES
+================================================================= */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding-top: 70px; /* Less padding on top */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .dashboard-hero {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-hero p {
+    font-size: 1rem;
+  }
+
+  .modules-section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* =================================================================
+  TPO AUTHENTICATION STYLES (LOGIN & SIGNUP)
+================================================================= */
+
+body.auth-page {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+
+  /* --- Plain Background Color --- */
+  background-color: #f4f5f7; /* Light grey background */
+
+  /* --- Centering the Card --- */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* The white login/signup card */
+.auth-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  padding: 2.5rem 3rem;
+  width: 100%;
+  max-width: 480px; /* A bit wider for signup form */
+  box-sizing: border-box;
+
+  /* Entrance Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Card Title */
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* Card Subtitle */
+.auth-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Form Group (label + input) */
+.auth-form-group {
+  margin-bottom: 1.25rem; /* Tighter spacing */
+}
+
+.auth-form-group label {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* Form Input Fields */
+.auth-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Login/Signup Button */
+.auth-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 16px;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #0056b3;
+}
+
+/* Error Message (Red) */
+.auth-alert.alert-danger {
+  padding: 1rem;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Success Message (Green) */
+.auth-alert.alert-success {
+  padding: 1rem;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-alert.alert-success a {
+  color: #0b2e13;
+  font-weight: 600;
+}
+
+/* "Sign Up/Login" link section */
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.auth-footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =================================================================
+  OLD TPO STYLES (AS REQUESTED)
+================================================================= */
+
+#ju {
+  background: url(https://www.thapar.edu/Apply/phd/img/ma-in-psychologyat-thapar-institute.jpg)
+    center center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.p1h {
+  font-family: Verdana;
+  font-style: oblique;
+}
+
+hr.f1 {
+  border-top: 1px solid lightcoral;
+}
+
+#effview pre {
+  color: lightsalmon;
+}
+
+hr.hl1 {
+  border-top: 0.5px solid lightcoral;
+}
+
+.ful {
+  border-bottom: 0.2px solid black;
+  font-family: cursive;
+  color: lightskyblue;
+}
+
+.nful {
+  border-bottom: 0.2px solid black;
+  font-family: cursive;
+  color: lightsalmon;
+}
+
+hr.last {
+  border-top: 1px solid lightskyblue;
+}
+
+.welcome-title {
+  color: black;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.max-auto {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+}

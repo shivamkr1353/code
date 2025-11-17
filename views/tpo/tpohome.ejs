@@ -1,0 +1,47 @@
+<%- include ('../partials/header.html'); -%>
+<title>TPO home</title>
+<link rel="stylesheet" href="../../css/tpo.css">
+</head>
+<body class="dashboard-page"> 
+
+  <%- include ('partials/navbar.html'); -%>
+
+  <div class="dashboard-container">
+
+    <div class="dashboard-hero">
+      <h1>WELCOME <%= tname.toUpperCase() %></h1>
+      <p>WE ARE GLAD YOU'RE HERE</p>
+    </div>
+
+    <h2 class="modules-section-title">Available Modules</h2>
+
+    <div class="module-grid">
+
+      <div class="module-card">
+        <h3>TPO Module</h3>
+        <ul>
+          <li>View TPO and College Details</li>
+          <li>Update TPO and College Details</li>
+          <li>Change Password</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>Student Module</h3>
+        <ul>
+          <li>View Student Details</li>
+          <li>Add Student Details</li>
+          <li>On-Campus Job Announcement</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>Company (HR) Module</h3>
+        <ul>
+          <li>View Company(HR) Details</li>
+          <li>Request List of Company</li>
+        </ul>
+      </div>
+
+    </div> </div> <%- include ('../partials/footer.html'); -%>
+</body>

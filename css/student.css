@@ -1,0 +1,351 @@
+/* =================================================================
+  AUTHENTICATION PAGE STYLES (LOGIN & SIGNUP)
+  (Your existing styles - UNCHANGED)
+=================================================================
+*/
+
+body.auth-page {
+  background-color: #f4f5f7; /* Light grey background */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 0; /* Adds space for smaller screens */
+  box-sizing: border-box;
+}
+.auth-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 480px; /* You can change this width */
+  margin: 1rem;
+  box-sizing: border-box;
+}
+.auth-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.auth-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+.auth-form-group {
+  margin-bottom: 1.25rem;
+}
+.auth-form-group-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.auth-form-group-row .auth-form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+.auth-form-group label {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* Important! */
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.auth-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+.auth-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.auth-button:hover {
+  background-color: #0056b3;
+}
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #555;
+}
+.auth-footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =================================================================
+  APPLY ONCAMPUS JOB PAGE STYLES
+  (Your existing styles - UNCHANGED)
+=================================================================
+*/
+
+body.apply-job-page {
+  background-image: url("https://www.mahindrauniversity.edu.in/wp-content/uploads/2023/04/why20is20training2020placement20cell20important1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+.apply-job-container {
+  background: rgba(255, 255, 255, 0.9); /* Matches login page look */
+  border-radius: 10px;
+  padding: 30px 40px;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.apply-job-container h1 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-style: oblique;
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+.apply-job-container label {
+  font-weight: 600;
+  color: #444;
+}
+.apply-job-container input,
+.apply-job-container textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.apply-job-container input[readonly],
+.apply-job-container textarea[readonly] {
+  background-color: #f7f7f7;
+  color: #333;
+}
+.apply-job-container hr {
+  border-top: 1px solid lightcoral;
+}
+.apply-job-container button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.apply-job-container button:hover {
+  background-color: #0056b3;
+}
+.apply-job-container .alert {
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* =================================================================
+  NEW & IMPROVED STUDENT DASHBOARD (HOME) STYLES
+=================================================================
+*/
+
+body.dashboard-page {
+  background-color: #f4f5f7; /* Same light grey as auth pages */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* This container centers the content and adds padding */
+.dashboard-container {
+  width: 100%;
+  max-width: 1100px; /* A standard wide container */
+  margin: 0 auto; /* Centers the container */
+  padding: 2.5rem; /* Spacing from screen edges and navbar */
+  box-sizing: border-box;
+}
+
+/* The blue "Welcome" banner - NOW WITH A GRADIENT! */
+.dashboard-hero {
+  /* CHANGED: Using a gradient for a more modern look */
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 3rem 3.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.25);
+}
+
+.dashboard-hero h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem; /* Increased size */
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.dashboard-hero p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9); /* Lighter white for subtitle */
+}
+
+/* Title for the "Available Modules" section - MORE STYLING */
+.modules-section-title {
+  font-size: 2rem; /* Increased size */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem; /* More space */
+  padding-bottom: 0.75rem; /* Space for the border */
+  border-bottom: 2px solid #e0e0e0; /* A light underline */
+}
+
+/* This creates the 3-column grid */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; /* Increased gap */
+}
+
+/* This is the style for each individual card - UPGRADED */
+.module-card {
+  background: #ffffff;
+  border-radius: 12px;
+  /* A more subtle, layered shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Good practice */
+}
+
+.module-card:hover {
+  transform: translateY(-8px); /* A more pronounced hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Card titles - NOW WITH ICONS! */
+.module-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0056b3; /* Darker blue for contrast */
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  display: flex; /* This is key for aligning the icon */
+  align-items: center;
+}
+
+/* NEW: Using CSS pseudo-elements to add icons */
+.module-card h3::before {
+  display: inline-block;
+  margin-right: 0.75rem;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* NEW: Assigning icons to each card using nth-child */
+.module-grid .module-card:nth-child(1) h3::before {
+  content: "🎓"; /* Student Icon */
+}
+.module-grid .module-card:nth-child(2) h3::before {
+  content: "📈"; /* TPO Icon (e.g., career growth) */
+}
+.module-grid .module-card:nth-child(3) h3::before {
+  content: "🏢"; /* Company Icon */
+}
+
+/* Styling the lists inside the cards - UPGRADED */
+.module-card ul {
+  margin: 0;
+  padding: 0; /* Removed default padding */
+  list-style-type: none; /* Removed default bullets */
+}
+
+.module-card li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-size: 1rem;
+  display: flex; /* Key for aligning icon */
+  align-items: center;
+  padding: 0.75rem 0.5rem; /* Make it feel like a button */
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.module-card li:last-child {
+  margin-bottom: 0;
+}
+
+/* NEW: Adding chevron icons to each list item */
+.module-card li::before {
+  content: "›"; /* Chevron icon */
+  color: #007bff; /* Primary color */
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+  line-height: 1; /* Ensures vertical alignment */
+}
+
+/* NEW: Interactive hover state for list items */
+.module-card li:hover {
+  background-color: #f8f9fa; /* A very light grey */
+  color: #0056b3; /* Darker blue on hover */
+  transform: translateX(5px); /* Nice "push" effect */
+  cursor: pointer;
+}
+
+/* =================================================================
+  RESPONSIVE STYLES
+=================================================================
+*/
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.5rem; /* Tighter padding on mobile */
+  }
+
+  .dashboard-hero {
+    padding: 2rem 1.5rem; /* Tighter padding */
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-hero h1 {
+    font-size: 1.8rem; /* Smaller H1 */
+  }
+
+  .dashboard-hero p {
+    font-size: 1rem; /* Smaller text */
+  }
+
+  .modules-section-title {
+    font-size: 1.5rem; /* Smaller title */
+  }
+}

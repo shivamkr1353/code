@@ -1,0 +1,40 @@
+<%- include ('../partials/header.html'); -%>
+<title>Student Login</title>
+<link rel="stylesheet" href="/css/student.css">
+</head>
+<body class="auth-page"> 
+
+    <div class="auth-card">
+        <form action="/student/login" method="POST" data-toggle="validator">
+            <h2 class="auth-title">Student Login</h2>
+            <p class="auth-subtitle">Welcome back! Please login to your account.</p>
+
+            <!-- Safely render login errors if they exist -->
+            <% if (typeof login_errors !== 'undefined' && login_errors.length > 0) { 
+                 login_errors.forEach(function(error_msg){ %>
+                    <div class="alert alert-danger" role="alert"><%= error_msg %></div>
+            <% });
+            } %>
+
+            <div class="auth-form-group">
+                <label for="email">Email</label>
+                <input type="email" name="user_email" id="email" class="auth-input" placeholder="xyz@gmail.com" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="auth-form-group">
+                <label for="password">Password</label>
+                <input type="password" name="user_pass" id="password" class="auth-input" placeholder="Password" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="auth-form-group">
+                <button type="submit" class="auth-button">Login</button>
+            </div>
+
+            <div class="auth-footer">
+                Don't have an account? <a href="/student/signup">Sign Up here</a>
+            </div>
+        </form>
+    </div>
+

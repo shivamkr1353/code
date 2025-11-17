@@ -1,0 +1,53 @@
+<%- include ('../partials/header.html'); -%>
+<title>Student Home</title>
+
+<link rel="stylesheet" href="../../css/student.css">
+</head>
+<body class="dashboard-page">
+  <%- include ('partials/navbar.html'); -%>
+
+  <div class="dashboard-container">
+
+    <div class="dashboard-hero">
+      <h1>WELCOME <%= sname.toUpperCase() %></h1>
+      <p>We are glad you're here. This is your central hub for all academic and career-related activities.</p>
+    </div>
+
+    <h2 class="modules-section-title">Available Modules</h2>
+
+    <div class="module-grid">
+      
+    
+      <div class="module-card">
+        <h3>Student Module</h3>
+        <ul>
+          <li>View Details</li>
+          <li>Update Details</li>
+          <li>Change Password</li>
+        </ul>
+      </div>
+
+  
+      <div class="module-card">
+        <h3>TPO Module</h3>
+        <ul>
+          <li>View TPO Details</li>
+          <li>On-Campus Job Details</li>
+          <li>Applied Job Details</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>Company (HR) Module</h3>
+        <ul>
+          <li>View Company Details</li>
+          <li>Off-Campus Job Details</li>
+          <li>Applied Job Details</li>
+        </ul>
+      </div>
+
+    </div> 
+
+  </div> 
+
+<%- include ('../partials/footer.html'); -%>

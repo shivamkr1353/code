@@ -1,0 +1,430 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 60px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+/* =======================
+   Navigation Bar
+   ======================== */
+
+.navbar-custom {
+  background: rgba(17, 17, 17, 0.85); /* Dark, slightly transparent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff !important;
+}
+
+.navbar-custom .nav-link {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #fff !important;
+}
+
+/* =======================
+   Hero Section
+   ======================== */
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* This gradient is inspired by your reference image */
+  background: linear-gradient(125deg, #e0f7fa 0%, #f3e5f5 100%);
+  color: #111;
+  padding-top: 60px; /* Offset for the fixed navbar */
+}
+
+.hero-title {
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.hero-tagline {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #333;
+  margin-top: 10px;
+}
+
+.hero-cta-buttons {
+  margin-top: 30px;
+}
+
+.btn-cta {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-cta-primary {
+  background-color: #111;
+  color: #fff;
+}
+
+.btn-cta-primary:hover {
+  background-color: #333;
+  color: #fff !important;
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.btn-cta-secondary {
+  background-color: transparent;
+  color: #111;
+  border: 2px solid #111;
+}
+
+.btn-cta-secondary:hover {
+  background-color: #111;
+  color: #fff !important;
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+/* =======================
+   NEW: Core Principles Section
+   ======================== */
+.principle-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  height: 100%;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.principle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.principle-card .icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0f7fa; /* Light cyan from gradient */
+}
+
+.principle-card .icon-wrapper i {
+  font-size: 2rem;
+  color: #00bcd4; /* Darker cyan */
+}
+
+/* Color variations for icons */
+.principle-card:nth-child(2) .icon-wrapper {
+  background-color: #f3e5f5; /* Light purple */
+}
+.principle-card:nth-child(2) .icon-wrapper i {
+  color: #ab47bc; /* Darker purple */
+}
+.principle-card:nth-child(3) .icon-wrapper {
+  background-color: #e8f5e9; /* Light green */
+}
+.principle-card:nth-child(3) .icon-wrapper i {
+  color: #4caf50; /* Darker green */
+}
+
+/* =======================
+   NEW: Tabbed Features Section
+   ======================== */
+
+.features-tabs {
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.features-tabs .nav-link {
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #666;
+  padding: 15px 30px;
+  transition: all 0.3s ease;
+}
+
+.features-tabs .nav-link i {
+  margin-right: 8px;
+}
+
+.features-tabs .nav-link.active {
+  color: #111;
+  border-bottom-color: #111; /* Use a main color */
+}
+
+.features-tabs .nav-link:hover {
+  color: #333;
+}
+
+.tab-content .feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.tab-content .feature-list li {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.tab-content .feature-list i {
+  color: #00bcd4; /* Accent color */
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.tab-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* 1. Added the dot (.) to select the CLASS */
+.feature-placeholder-image {
+  width: 100%;
+  height: 350px;
+  background-color: #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* 2. Made the img selector specific to only this div */
+.feature-placeholder-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the magic property! */
+}
+/* =======================
+   Stats Section
+   ======================== */
+
+.stat-item h3 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  /* Pink/purple from gradient */
+  color: #c471ed;
+}
+
+.stat-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* =======================
+   Report Section
+   ======================== */
+.report-section .section-title {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.report-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* This is your "black space" placeholder */
+.report-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #222;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  overflow: hidden;
+  font-size: 1.2rem;
+  font-style: italic;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.report-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the magic property! */
+}
+/* =======================
+   NEW: CTA Section
+   ======================== */
+
+.cta-section {
+  background-color: #111;
+  color: #fff;
+}
+.text-white {
+  color: #fff !important;
+}
+.text-white-70 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.step-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.step-card span {
+  display: block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  background-color: #00bcd4; /* Accent color */
+  color: #111;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.step-card h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+/* =======================
+   Footer
+   ======================== */
+
+.main-footer {
+  background-color: #0a0a0a;
+  color: #aaa;
+  padding: 30px 0;
+  border-top: 1px solid #222;
+}
+
+.main-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* =======================
+   Responsive Adjustments
+   ======================== */
+
+@media (max-width: 991.98px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+  .report-placeholder {
+    margin-top: 40px;
+    height: 300px;
+  }
+  .report-section .section-title {
+    text-align: center;
+  }
+  .feature-placeholder-image {
+    margin-top: 30px;
+    height: 300px;
+  }
+  .principle-card,
+  .step-card {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+  .btn-cta {
+    display: block;
+    margin: 10px 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .stat-item {
+    margin-bottom: 30px;
+  }
+  .features-tabs .nav-link {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+  .tab-content h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .tab-content p {
+    text-align: center;
+  }
+}

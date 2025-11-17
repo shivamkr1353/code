@@ -1,0 +1,45 @@
+<style>
+  footer.container-fluid.text-center.bg-light {
+      background-color: #0a0a0a !important; 
+      color: #aaa;
+      padding: 30px 0;
+      border-top: 1px solid #222;
+  }
+  
+  footer.bg-light p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #aaa; 
+  }
+
+  footer.bg-light hr.last {
+      display: none;
+  }
+</style>
+
+<footer class="container-fluid text-center bg-light">
+        <hr class="last">
+        <p>Copyright <i class="fa fa-copyright" aria-hidden="true"></i>&nbsp;<script>document.write(new Date().getFullYear())</script>&nbsp;Placement Nexus</p>
+    </footer>
+
+</body>
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+      try {
+        $("#effview").accordion({
+            collapsible:true,
+            event:"mouseover",
+            animate:3000,
+        }); 
+      } catch (e) {
+        console.warn("Accordion element #effview not found.");
+      }
+    </script>
+  
+</html>

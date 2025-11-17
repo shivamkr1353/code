@@ -1,0 +1,62 @@
+<%- include ('../partials/header.html'); -%>
+<title>Student Sign Up</title>
+<link rel="stylesheet" href="/css/student.css">
+</head>
+<!-- 
+  This 'auth-page' class on the body is new. 
+  It sets the light grey background and centers the form. 
+-->
+<body class="auth-page">
+
+    <div class="auth-card">
+        <form action="/student/signup" method="POST" data-toggle="validator">
+            <h2 class="auth-title">Create Your Account</h2>
+            <p class="auth-subtitle">Get started with your student profile.</p>
+
+            <!-- Safely render signup errors if they exist -->
+            <% if (typeof signup_errors !== 'undefined' && signup_errors.length > 0) { 
+                 signup_errors.forEach(function(error_msg){ %>
+                    <div class="alert alert-danger" role="alert"><%= error_msg %></div>
+            <% });
+            } %>
+
+            <div class="auth-form-group-row">
+                <div class="auth-form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" name="user_fname" id="fname" class="auth-input" placeholder="John" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="auth-form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" name="user_lname" id="lname" class="auth-input" placeholder="Doe" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+
+            <div class="auth-form-group">
+                <label for="email">Email</label>
+                <input type="email" name="user_email" id="email" class="auth-input" placeholder="john.doe@example.com" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="auth-form-group">
+                <label for="password">Password</label>
+                <input type="password" name="user_pass" id="password" class="auth-input" placeholder="Enter password" required>
+                <div class="help-block with-errors"></div>
+            </div>
+            
+            <div class="auth-form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_pass" id="confirm_password" class="auth-input" placeholder="Confirm password" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="auth-form-group">
+                <button type="submit" class="auth-button">Create Account</button>
+            </div>
+
+            <div class="auth-footer">
+                Already have an account? <a href="/student/login">Log In</a>
+            </div>
+        </form>
+    </div>

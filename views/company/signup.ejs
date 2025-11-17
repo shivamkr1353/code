@@ -1,0 +1,68 @@
+<%- include ('../partials/header.html'); -%>
+<title>SignUp Company</title>
+<!-- Link to the ONE combined company.css file -->
+<link rel="stylesheet" href="../../css/company.css">
+</head>
+<!-- The 'auth-page' class will apply all the new styles -->
+<body class="auth-page">
+
+  <!-- This card will be centered on the page -->
+  <div class="auth-card">
+    <h1 class="auth-title">Company SignUp</h1>
+    <p class="auth-subtitle">Create an account to get started.</p>
+
+    <!-- Success Message -->
+    <% if (locals.message) { %>
+      <div class="auth-alert alert-success">Your account has been created successfully. Now you can <a href="/company/login">Login</a></div>
+    <% } %>
+    
+    <form action="/company/signup" method="POST" data-toggle="validator">
+      
+      <!-- Registration Error Messages -->
+      <% if (locals.register_error) { 
+        register_error.forEach(function(error_msg){ %>
+          <div class="auth-alert alert-danger"><%= error_msg %></div>
+        <% });
+      } %>
+
+      <!-- HR Name Input -->
+      <div class="auth-form-group">
+        <label for="inputName">HR Name</label>
+        <input type="text" name="user_name" data-error="You must have a HR name." id="inputName" class="auth-input" placeholder="HR Name" value="<%= (locals.old_data) ? old_data.user_name : ''; %>" required>
+        <div class="help-block with-errors"></div>
+      </div>
+
+      <!-- Email Input -->
+      <div class="auth-form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" name="user_email" id="inputEmail" class="auth-input" placeholder="xyz@gmail.com" value="<%= (locals.old_data) ? old_data.user_email : ''; %>" required>
+        <div class="help-block with-errors"></div>
+      </div>
+
+      <!-- Password Input -->
+      <div class="auth-form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" name="user_pass" data-minlength="6" id="inputPassword" data-error="Have at least 6 characters" class="auth-input" placeholder="Password (min. 6 characters)" required>
+        <div class="help-block with-errors"></div>
+      </div>
+
+      <!-- Company Name Input -->
+      <div class="auth-form-group">
+        <label for="inputCompany">Company Name</label>
+        <input type="text" name="companyname" data-error="You must have a Company name." id="inputCompany" class="auth-input" placeholder="Company Name" required>
+        <div class="help-block with-errors"></div>
+      </div>
+
+      <!-- SignUp Button -->
+      <div class="auth-form-group">
+        <button type="submit" class="auth-button">Sign Up</button>
+      </div>
+      
+    </form>
+
+    
+    <div class="auth-footer">
+      <span> Already have an account? </span><a href="login">Login here</a>
+    </div>
+  </div>
+

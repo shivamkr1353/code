@@ -1,0 +1,111 @@
+<head>
+  <style>
+    .navbar {
+      padding: 12px 30px !important;
+      background-color: #ffffff !important;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      margin-left: 20px;
+      color: #333 !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #000 !important;
+    }
+
+    .dropdown-menu {
+      border-radius: 8px;
+      padding: 10px 0;
+    }
+
+    .dropdown-item {
+      padding: 8px 20px;
+      color: #333 !important;
+      font-weight: 400;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f5f5f5;
+      color: #000 !important;
+    }
+
+    .navbar-brand,
+    .navbar-brand:hover {
+      color: #000 !important;
+      text-decoration: none !important;
+      font-size: 25px !important;
+      font-weight: 700 !important;
+    }
+
+    /* REMOVE HAMBURGER & ALWAYS SHOW FULL MENU */
+    .navbar-toggler {
+      display: none !important;
+    }
+
+    .navbar-collapse {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <a class="navbar-brand" href="/tpo/tpohome">
+    <i class="fas fa-book-open mr-1"></i> TPO
+  </a>
+
+  <div class="navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <!-- Home -->
+      <li class="nav-item">
+        <a class="nav-link" href="/tpo/tpohome">Home</a>
+      </li>
+
+      <!-- Student -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+          >Student</a
+        >
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/tpo/viewstudent">View Students</a>
+          <a class="dropdown-item" href="/tpo/addstudent">Add Student</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/tpo/oncampusjob"
+            >On-Campus Job Announcement</a
+          >
+        </div>
+      </li>
+
+      <!-- Company (HR) -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+          >Company (HR)</a
+        >
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/tpo/viewcompany">View Companies</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/tpo/viewrequest"
+            >Company Request List</a
+          >
+        </div>
+      </li>
+
+      <!-- Profile -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+          >Profile</a
+        >
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/tpo/viewdetailst">View Profile</a>
+          <a class="dropdown-item" href="/tpo/editdetailst">Edit Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/tpo/changepass">Change Pass</a>
+          <a class="dropdown-item text-danger font-weight-bold" href="/logout"
+            >Logout</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
