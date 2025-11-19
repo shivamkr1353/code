@@ -22,7 +22,7 @@
     "express-validator": "^6.9.2",
     "multer": "^1.4.4",
     "multer-s3": "^3.0.1",
-    "mysql2": "^2.2.5",
+    "mysql2": "^2.3.3",
     "nodeman": "^1.1.2",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",

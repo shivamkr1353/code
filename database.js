@@ -1,8 +1,11 @@
 const mysql = require("mysql2");
+
 const dbConnection = mysql.createPool({
-  host: "localhost", // MYSQL HOST NAME
-  user: "root", // MYSQL USERNAME
-  password: "", // MYSQL PASSWORD
-  database: "placement", // MYSQL DB NAME
+  host: "localhost", // BACK TO LOCALHOST
+  user: "root",
+  password: "",
+  database: "placement",
+  multipleStatements: true,
 });
+
 module.exports = dbConnection;
