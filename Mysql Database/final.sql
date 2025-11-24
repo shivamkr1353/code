@@ -31,11 +31,11 @@ USE `placement`;
 
 DROP TABLE IF EXISTS `applied`;
 CREATE TABLE `applied` (
-  `aid` int(11) NOT NULL,
-  `jid` int(11) NOT NULL,
-  `cid` int(11) NOT NULL,
-  `sid` int(11) NOT NULL,
-  `iseligible` varchar(50) NOT NULL
+  `aid` int(11),
+  `jid` int(11),
+  `cid` int(11),
+  `sid` int(11),
+  `iseligible` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -62,17 +62,17 @@ INSERT INTO `applied` (`aid`, `jid`, `cid`, `sid`, `iseligible`) VALUES
 
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
-  `cid` int(11) NOT NULL COMMENT 'Auto increment',
-  `hrname` varchar(50) NOT NULL,
-  `cemail` varchar(50) NOT NULL,
-  `cpassword` varchar(500) NOT NULL,
-  `cname` char(50) NOT NULL,
-  `cwebsite` varchar(50) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `ctype` varchar(50) NOT NULL,
-  `cinfo` varchar(100) NOT NULL,
-  `cmobileno` decimal(10,0) NOT NULL,
-  `empl` varchar(50) NOT NULL
+  `cid` int(11) COMMENT 'Auto increment',
+  `hrname` varchar(50),
+  `cemail` varchar(50),
+  `cpassword` varchar(500),
+  `cname` char(50),
+  `cwebsite` varchar(50),
+  `city` varchar(100),
+  `ctype` varchar(50),
+  `cinfo` varchar(100),
+  `cmobileno` decimal(10,0),
+  `empl` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -98,25 +98,25 @@ INSERT INTO `company` (`cid`, `hrname`, `cemail`, `cpassword`, `cname`, `cwebsit
 
 DROP TABLE IF EXISTS `jobdetail`;
 CREATE TABLE `jobdetail` (
-  `jid` int(11) NOT NULL,
-  `cid` int(11) NOT NULL COMMENT 'Foreign key',
-  `place` varchar(50) NOT NULL,
-  `salary` varchar(50) NOT NULL,
-  `bondyears` decimal(10,0) NOT NULL,
-  `servagree` varchar(500) NOT NULL,
-  `jobtype` varchar(50) NOT NULL,
-  `jobinfo` varchar(500) NOT NULL,
-  `vacancy` decimal(10,0) NOT NULL,
-  `minavgcp` float NOT NULL,
-  `minblog` int(11) NOT NULL,
-  `lastdate` varchar(50) NOT NULL,
-  `dateexam` varchar(50) NOT NULL,
-  `dateinterview` varchar(50) NOT NULL,
-  `college` varchar(100) NOT NULL,
-  `department` varchar(100) NOT NULL,
-  `request` varchar(10) NOT NULL DEFAULT 'no',
-  `accepted` varchar(10) NOT NULL DEFAULT 'no',
-  `rejected` varchar(10) NOT NULL DEFAULT 'no'
+  `jid` int(11),
+  `cid` int(11) COMMENT 'Foreign key',
+  `place` varchar(50),
+  `salary` varchar(50),
+  `bondyears` decimal(10,0),
+  `servagree` varchar(500),
+  `jobtype` varchar(50),
+  `jobinfo` varchar(500),
+  `vacancy` decimal(10,0),
+  `minavgcp` float,
+  `minblog` int(11),
+  `lastdate` varchar(50),
+  `dateexam` varchar(50),
+  `dateinterview` varchar(50),
+  `college` varchar(100),
+  `department` varchar(100),
+  `request` varchar(10) DEFAULT 'no',
+  `accepted` varchar(10) DEFAULT 'no',
+  `rejected` varchar(10) DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -146,24 +146,24 @@ INSERT INTO `jobdetail` (`jid`, `cid`, `place`, `salary`, `bondyears`, `servagre
 
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
-  `sid` int(11) NOT NULL COMMENT 'Auto increment',
-  `sname` varchar(50) NOT NULL,
-  `semail` varchar(50) NOT NULL,
-  `spass` varchar(500) NOT NULL,
-  `collegename` varchar(50) NOT NULL,
-  `age` decimal(3,0) NOT NULL,
-  `city` varchar(50) NOT NULL DEFAULT '',
-  `gender` varchar(50) NOT NULL,
-  `smobileno` decimal(10,0) NOT NULL,
-  `isverified` varchar(50) NOT NULL DEFAULT 'NO',
-  `dname` varchar(50) NOT NULL,
-  `passingyear` varchar(10) NOT NULL,
-  `result10` varchar(10) NOT NULL,
-  `result12` varchar(10) NOT NULL,
-  `avgcgpa` varchar(10) NOT NULL,
-  `backlogs` decimal(3,0) NOT NULL,
+  `sid` int(11) COMMENT 'Auto increment',
+  `sname` varchar(50),
+  `semail` varchar(50),
+  `spass` varchar(500),
+  `collegename` varchar(50),
+  `age` decimal(3,0),
+  `city` varchar(50) DEFAULT '',
+  `gender` varchar(50),
+  `smobileno` decimal(10,0),
+  `isverified` varchar(50) DEFAULT 'NO',
+  `dname` varchar(50),
+  `passingyear` varchar(10),
+  `result10` varchar(10),
+  `result12` varchar(10),
+  `avgcgpa` varchar(10),
+  `backlogs` decimal(3,0),
   `resume_url` varchar(255) DEFAULT NULL,
-  `is_placed` tinyint(1) NOT NULL DEFAULT 0
+  `is_placed` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -311,19 +311,19 @@ INSERT INTO `student` (`sid`, `sname`, `semail`, `spass`, `collegename`, `age`, 
 
 DROP TABLE IF EXISTS `tpo`;
 CREATE TABLE `tpo` (
-  `tid` int(10) UNSIGNED NOT NULL,
-  `tname` varchar(50) NOT NULL,
-  `temail` varchar(50) NOT NULL,
-  `tpassword` varchar(500) NOT NULL,
-  `collegename` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `mobileno` decimal(10,0) NOT NULL,
-  `website` varchar(50) NOT NULL,
-  `nirf` decimal(3,0) NOT NULL,
-  `nacc` varchar(20) NOT NULL,
-  `ncte` varchar(20) NOT NULL,
-  `aicte` varchar(20) NOT NULL,
-  `ugc` varchar(20) NOT NULL
+  `tid` int(10) UNSIGNED,
+  `tname` varchar(50),
+  `temail` varchar(50),
+  `tpassword` varchar(500),
+  `collegename` varchar(50),
+  `city` varchar(50),
+  `mobileno` decimal(10,0),
+  `website` varchar(50),
+  `nirf` decimal(3,0),
+  `nacc` varchar(20),
+  `ncte` varchar(20),
+  `aicte` varchar(20),
+  `ugc` varchar(20)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -379,31 +379,31 @@ ALTER TABLE `tpo`
 -- AUTO_INCREMENT for table `applied`
 --
 ALTER TABLE `applied`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `aid` int(11) AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Auto increment', AUTO_INCREMENT=22;
+  MODIFY `cid` int(11) AUTO_INCREMENT COMMENT 'Auto increment', AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `jobdetail`
 --
 ALTER TABLE `jobdetail`
-  MODIFY `jid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `jid` int(11) AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Auto increment', AUTO_INCREMENT=489;
+  MODIFY `sid` int(11) AUTO_INCREMENT COMMENT 'Auto increment', AUTO_INCREMENT=489;
 
 --
 -- AUTO_INCREMENT for table `tpo`
 --
 ALTER TABLE `tpo`
-  MODIFY `tid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `tid` int(10) UNSIGNED AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
