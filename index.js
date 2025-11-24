@@ -1978,26 +1978,47 @@ app.get("/student/viewcompany", (req, res, next) => {
 });
 //END OF STUDENT VIEWCOMPANY PAGE
 //STUDENT VIEW TPO PAGE
-app.get("/student/viewtpo", (req, res, next) => {
-  var sql = `SELECT DISTINCT 
-    t.tname, t.temail, t.mobileno, t.city, t.website, 
-    t.nirf, t.nacc, t.ncte, t.aicte, t.ugc 
-FROM 
-    tpo t 
-INNER JOIN 
-    student s ON t.collegename = s.collegename 
-LIMIT 1;  -- Ensures only one unique row is returned
-;
-`; // Corrected the spelling
+// ✅ View TPO details for logged-in student
+app.get("/student/viewtpo", (req, res) => {
+  const studentID = req.session.userID; // make sure you set this at login
 
-  dbConnection.query(sql, [req.session.userID], function (err, data, fields) {
+  if (!studentID) {
+    // optional: handle not logged in
+    return res.redirect("/login");
+  }
+
+  const sql = `
+    SELECT 
+      t.tname,
+      t.temail,
+      t.mobileno,
+      t.city,
+      t.website,
+      t.nirf,
+      t.nacc,
+      t.ncte,
+      t.aicte,
+      t.ugc
+    FROM student s
+    LEFT JOIN tpo t
+      ON t.collegename = s.collegename
+    WHERE s.sid = ?
+  `;
+
+  dbConnection.query(sql, [studentID], (err, rows) => {
     if (err) {
-      console.error("Error executing query:", err);
+      console.error("Error executing query for /student/viewtpo:", err);
       return res
         .status(500)
         .send("An error occurred while retrieving TPO details.");
     }
-    res.render("student/viewtpo", { title: "User List", userData: data });
+
+    console.log("TPO rows:", rows); // for debugging; remove later if you want
+
+    res.render("student/viewtpo", {
+      title: "View TPO Details",
+      userData: rows,
+    });
   });
 });
 
@@ -2129,65 +2150,52 @@ app.get("/student/appliedoffjob", (req, res, next) => {
 });
 //END OF STUDENT VIEW OFFCAMPUS JOB
 //STUDENT VIEW ONCAMPUS JOB
+
 app.get("/student/oncampjob", (req, res, next) => {
-  const userId = req.session.userID; // Get user ID from session
+  const userId = req.session.userID; // Get logged-in student ID
 
-  // Simplified SQL query to debug
-  dbConnection.query(
-    `SELECT 
-    c.cname, 
-    j.jid, 
-    j.cid, 
-    j.place, 
-    j.salary, 
-    j.bondyears, 
-    j.servagree, 
-    j.jobtype, 
-    j.jobinfo, 
-    j.vacancy, 
-    j.minavgcp, 
-    j.minblog, 
-    j.lastdate, 
-    j.dateexam, 
-    j.dateinterview, 
-    j.college, 
-    j.department 
-FROM 
-    jobdetail j 
-INNER JOIN 
-    company c ON j.cid = c.cid 
-INNER JOIN 
-    student s ON j.college = s.collegename OR j.college = "all" 
-WHERE 
-    j.request = "yes" 
-    AND j.accepted = "yes" 
-    AND j.rejected = "no" 
-ORDER BY 
-    j.jid DESC 
-LIMIT 0, 25;
-`,
-    [userId],
-    function (err, data, fields) {
-      if (err) {
-        console.error("Error executing query:", err);
-        return res
-          .status(500)
-          .send("An error occurred while retrieving job details.");
-      }
+  if (!userId) return res.redirect("/login"); // Safety check
 
-      // Check if data is returned
-      if (data.length === 0) {
-        console.log("No results found for the given user ID:", userId);
-        return res.render("student/oncampjob", {
-          title: "User List",
-          userData: [],
-        }); // Render empty data
-      }
+  const sql = `
+    SELECT 
+      c.cname, 
+      j.jid, 
+      j.place, 
+      j.salary, 
+      j.vacancy, 
+      j.jobtype, 
+      j.lastdate
+    FROM jobdetail j
+    INNER JOIN company c ON j.cid = c.cid
+    INNER JOIN student s ON 
+      (
+        j.college = s.collegename   
+        OR j.college = 'all'        
+      )
+    WHERE 
+      s.sid = ?                    
+      AND j.request = 'yes'
+      AND j.accepted = 'yes'
+      AND j.rejected = 'no'
+    ORDER BY j.jid DESC
+    LIMIT 25;
+  `;
 
-      console.log("Retrieved data:", data); // Log retrieved data for debugging
-      res.render("student/oncampjob", { title: "User List", userData: data });
+  dbConnection.query(sql, [userId], (err, data) => {
+    if (err) {
+      console.error("Error executing query:", err);
+      return res
+        .status(500)
+        .send("An error occurred while retrieving job details.");
     }
-  );
+
+    console.log("Retrieved job data:", data);
+
+    res.render("student/oncampjob", {
+      title: "On-Campus Jobs",
+      userData: data || [],
+    });
+  });
 });
 
 // APPLY JOB (GET)
