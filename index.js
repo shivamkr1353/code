@@ -9,7 +9,7 @@ const { body, validationResult } = require("express-validator");
 const { response } = require("express");
 //const AWS = require("aws-sdk");
 const { S3Client } = require("@aws-sdk/client-s3");
-
+const fs = require("fs");
 const multerS3 = require("multer-s3");
 require("dotenv").config();
 
