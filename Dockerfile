@@ -39,7 +39,7 @@ RUN echo "#!/bin/bash" > start.sh && \
     echo "echo 'Loading Schema (Before setting password)...'" >> start.sh && \
     # --- CHANGED: IMPORT SQL FIRST ---
     # Ensure the filename matches exactly what is in your folder (student.sql vs schema.sql)
-    echo "mysql placement < \"Mysql Database/student.sql\"" >> start.sh && \
+    echo "mysql placement < \"Mysql Database/final.sql\"" >> start.sh && \
     echo "echo 'Setting Root Password...'" >> start.sh && \
     # --- CHANGED: SET PASSWORD SECOND ---
     echo "mysql -e \"ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('root');\"" >> start.sh && \
