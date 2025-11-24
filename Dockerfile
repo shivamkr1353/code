@@ -48,7 +48,7 @@ RUN echo "#!/bin/bash" > start.sh && \
     chmod +x start.sh
 
 # Expose the port
-EXPOSE 8080
+EXPOSE 8000
 
 # Run the script when container starts
 CMD ["./start.sh"]
